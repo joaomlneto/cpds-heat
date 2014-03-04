@@ -1,0 +1,351 @@
+DEFAULT_OPTIONS
+
+LEVEL               TASK
+UNITS               NANOSEC
+LOOK_BACK           100
+SPEED               1
+FLAG_ICONS          ENABLED
+NUM_OF_STATE_COLORS 21
+YMAX_SCALE          20
+
+
+DEFAULT_SEMANTIC
+
+THREAD_FUNC         State As Is
+
+
+STATES
+0	Idle
+1	Running
+2	Not created
+3	Waiting a message
+4	Blocked
+5	Thd. Synchr.
+6	Test/Probe
+7	Sched. and Fork/Join
+8	Wait/WaitAll
+9	Blocked
+10	Immediate Send
+11	Immediate Receive
+12	I/O
+13	Group Communication
+14	Tracing Disabled
+15	Overhead
+16	SendRecv
+17	One Sided OP
+18	Startup Latency
+19	Waiting links
+20	Data copy
+21	Round Trip Time
+
+
+EVENT_TYPE
+10  90  Critical Path Block
+VALUES
+1  Begin
+0  End
+
+
+EVENT_TYPE
+10  89  I/O
+VALUES
+0      IO METADATA BEGIN
+1      IO METADATA END
+2      IO BLOCK NONCOLLECTIVE READ BEGIN
+3      IO BLOCK NONCOLLECTIVE READ END
+4      IO BLOCK NONCOLLECTIVE WRITE BEGIN
+5      IO BLOCK NONCOLLECTIVE WRITE END
+6      IO BLOCK COLLECTIVE READ BEGIN
+7      IO BLOCK COLLECTIVE READ END
+8      IO BLOCK COLLECTIVE WRITE BEGIN
+9      IO BLOCK COLLECTIVE WRITE END
+10     IO NONBLOCK NONCOLLECTIVE READ BEGIN
+11     IO NONBLOCK NONCOLLECTIVE END
+12     IO NONBLOCK NONCOLLECTIVE WRITE BEGIN
+13     IO NONBLOCK COLLECTIVE READ BEGIN
+14     IO NONBLOCK COLLECTIVE WRITE BEGIN
+15     IO NONBLOCK COLLECTIVE END
+
+
+EVENT_TYPE
+11  88   One Sided Operations
+VALUES
+0      OS START
+1      OS LATENCY
+2      OS END
+3      OS FENCE START
+4      OS FENCE END
+5      OS GET LOCK
+6      OS WAIT LOCK
+7      OS UNLOCK BEGIN
+8      OS UNLOCK END
+9      OS POST POST
+10     OS POST START
+11     OS POST START BLOCK
+12     OS POST COMPLETE BLOCK
+13     OS POST COMPLETE
+14     OS POST WAIT
+15     OS POST WAIT BLOCK
+
+
+
+EVENT_TYPE
+8  91  GROUP_BLOCK
+VALUES
+0       END
+
+
+
+EVENT_TYPE
+8  92  GROUP_LAST
+VALUES
+0       END
+
+
+
+EVENT_TYPE
+8  93  GROUP_FREE
+VALUES
+0       END
+
+
+
+EVENT_TYPE
+8 40000000  ITERATION_BEGIN
+
+
+
+EVENT_TYPE
+0   50000001    MPI Point-to-point
+VALUES
+1   MPI_Send
+2   MPI_Recv
+3   MPI_Isend
+4   MPI_Irecv
+5   MPI_Wait
+6   MPI_Waitall
+33   MPI_Bsend
+34   MPI_Ssend
+35   MPI_Rsend
+36   MPI_Ibsend
+37   MPI_Issend
+38   MPI_Irsend
+39   MPI_Test
+40   MPI_Cancel
+41   MPI_Sendrecv
+42   MPI_Sendrecv_replace
+59   MPI_Waitany
+60   MPI_Waitsome
+61   MPI_Probe
+62   MPI_Iprobe
+125   MPI_Testall
+126   MPI_Testany
+128   MPI_Testsome
+0   End
+
+
+EVENT_TYPE
+0   50000002    MPI Collective Comm
+VALUES
+7   MPI_Bcast
+8   MPI_Barrier
+9   MPI_Reduce
+10   MPI_Allreduce
+11   MPI_Alltoall
+12   MPI_Alltoallv
+13   MPI_Gather
+14   MPI_Gatherv
+15   MPI_Scatter
+16   MPI_Scatterv
+17   MPI_Allgather
+18   MPI_Allgatherv
+30   MPI_Scan
+80   MPI_Reduce_scatter
+0   End
+
+
+EVENT_TYPE
+0   50000003    MPI Other
+VALUES
+19   MPI_Comm_rank
+20   MPI_Comm_size
+21   MPI_Comm_create
+22   MPI_Comm_dup
+23   MPI_Comm_split
+24   MPI_Comm_group
+25   MPI_Comm_free
+26   MPI_Comm_remote_group
+27   MPI_Comm_remote_size
+28   MPI_Comm_test_inter
+29   MPI_Comm_compare
+31   MPI_Init
+32   MPI_Finalize
+43   MPI_Cart_create
+44   MPI_Cart_shift
+45   MPI_Cart_coords
+46   MPI_Cart_get
+47   MPI_Cart_map
+48   MPI_Cart_rank
+49   MPI_Cart_sub
+50   MPI_Cartdim_get
+51   MPI_Dims_create
+52   MPI_Graph_get
+53   MPI_Graph_map
+54   MPI_Graph_create
+55   MPI_Graph_neighbors
+56   MPI_Graphdims_get
+57   MPI_Graph_neighbors_count
+58   MPI_Topo_test
+76   MPI_Pack
+77   MPI_Unpack
+78   MPI_Op_create
+79   MPI_Op_free
+81   MPI_Attr_delete
+82   MPI_Attr_get
+83   MPI_Attr_put
+84   MPI_Group_difference
+85   MPI_Group_excl
+86   MPI_Group_free
+87   MPI_Group_incl
+88   MPI_Group_intersection
+89   MPI_Group_rank
+90   MPI_Group_range_excl
+91   MPI_Group_range_incl
+92   MPI_Group_size
+93   MPI_Group_translate_ranks
+94   MPI_Group_union
+95   MPI_Group_compare
+96   MPI_Intercomm_create
+97   MPI_Intercomm_merge
+98   MPI_Keyval_free
+99   MPI_Keyval_create
+100   MPI_Abort
+101   MPI_Error_class
+102   MPI_Errhandler_create
+103   MPI_Errhandler_free
+104   MPI_Errhandler_get
+105   MPI_Error_string
+106   MPI_Errhandler_set
+107   MPI_Get_processor_name
+108   MPI_Initialized
+109   MPI_Wtick
+110   MPI_Wtime
+111   MPI_Address
+112   MPI_Bsend_init
+113   MPI_Buffer_attach
+114   MPI_Buffer_detach
+115   MPI_Request_free
+116   MPI_Recv_init
+117   MPI_Send_init
+118   MPI_Get_count
+119   MPI_Get_elements
+120   MPI_Pack_size
+121   MPI_Rsend_init
+122   MPI_Ssend_init
+123   MPI_Start
+124   MPI_Startall
+127   MPI_Test_cancelled
+129   MPI_Type_commit
+130   MPI_Type_contiguous
+131   MPI_Type_extent
+132   MPI_Type_free
+133   MPI_Type_hindexed
+134   MPI_Type_hvector
+135   MPI_Type_indexed
+136   MPI_Type_lb
+137   MPI_Type_size
+138   MPI_Type_struct
+139   MPI_Type_ub
+140   MPI_Init_thread
+141   MPI_Type_vector
+0   End
+
+
+EVENT_TYPE
+0   50000004    MPI One-sided
+VALUES
+63   MPI_Win_create
+64   MPI_Win_free
+65   MPI_Put
+66   MPI_Get
+67   MPI_Accumulate
+68   MPI_Win_fence
+69   MPI_Win_complete
+70   MPI_Win_start
+71   MPI_Win_post
+72   MPI_Win_wait
+73   MPI_Win_test
+74   MPI_Win_lock
+75   MPI_Win_unlock
+0   End
+
+
+EVENT_TYPE
+0  50000080   MPI Test/Testsome software counter
+
+
+EVENT_TYPE
+0  50100003   MPI Global OP is root?
+0  50100004   MPI Global OP communicator
+0  50100001   MPI Global OP send size
+0  50100002   MPI Global OP recv size
+
+
+GRADIENT_COLOR
+0     {0,255,2}
+1     {0,244,13}
+2     {0,232,25}
+3     {0,220,37}
+4     {0,209,48}
+5     {0,197,60}
+6     {0,185,72}
+7     {0,173,84}
+8     {0,162,95}
+9     {0,150,107}
+10    {0,138,119}
+11    {0,127,130}
+12    {0,115,142}
+13    {0,103,154}
+14    {0,91,166}
+
+
+GRADIENT_NAMES
+0     Gradient 0
+1     Grad. 1/MPI Events
+2     Grad. 2/OMP Events
+3     Grad. 3/OMP locks
+4     Grad. 4/User func
+5     Grad. 5/User Events
+6     Grad. 6/General Events
+7     Gradient 7/Hard. Counters
+8     Gradient 8
+9     Gradient 9
+10    Gradient 10
+11    Gradient 11
+12    Gradient 12
+13    Gradient 13
+14    Gradient 14
+STATES_COLOR
+0	{117,195,255}
+1	{255,255,255}
+2	{0,0,255}
+3	{255,0,0}
+4	{0,255,0}
+5	{255,255,0}
+6	{235,0,0}
+7	{0,162,0}
+8	{255,0,255}
+9	{100,100,177}
+10	{172,174,41}
+11	{255,144,26}
+12	{2,255,177}
+13	{192,224,0}
+14	{170,0,0}
+15	{189,168,100}
+16	{95,200,0}
+17	{203,60,69}
+18	{0,109,255}
+19	{255,0,174}
+20	{179,0,0}
+21	{55,55,55}
+
